@@ -1,0 +1,24 @@
+body {
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(13, 119, 212) 87%);
+  height: 100vh;
+}
+
+.title {
+  h1 {
+    color: $mainColor;
+    font-size: 2rem;
+    text-align: center;
+    margin: 2rem;
+    font-weight: bold;
+  }
+}
+
+.table {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+
+  td {
+    max-width: 200px;
+  }
+}

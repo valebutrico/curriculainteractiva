@@ -1,0 +1,58 @@
+/* ------- FUENTES / VARIABLES------- */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;1,300&display=swap");
+/* ------- RESETEO ------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+*::-moz-selection {
+  color: white;
+  background-color: rgb(13, 119, 212);
+}
+*::selection {
+  color: white;
+  background-color: rgb(13, 119, 212);
+}
+
+a:focus-visible {
+  outline: 1px solid #3f3f3f;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+html {
+  scroll-padding-top: 260px;
+}
+
+.table {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.table td {
+  max-width: 200px;
+}
+
+body {
+  background: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(13, 119, 212) 87%);
+  height: 100vh;
+}
+
+.title h1 {
+  color: rgb(13, 119, 212);
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem;
+  font-weight: bold;
+}
+
+.table {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.table td {
+  max-width: 200px;
+}/*# sourceMappingURL=style.css.map */

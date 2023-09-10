@@ -1,0 +1,22 @@
+/* ------- RESETEO ------- */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: $fontMontserrat;
+
+  &::selection {
+    color: white;
+    background-color: $mainColor;
+  }
+}
+
+a:focus-visible {
+	outline: 1px solid #3f3f3f;
+	border-radius: 10px;
+	padding: 4px;
+}
+
+ html {
+  scroll-padding-top: 260px;
+ }
