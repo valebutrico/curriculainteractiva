@@ -1,15 +1,21 @@
-let creditos = 0;
-let cursos = [
-  { codigo: 2454, nombre: 'Cálculo Diferencial e Integral en Una Variable', creditos: 13 },
-  { codigo: 8747, nombre: 'Geometría y Álgebra Lineal 1', creditos: 9 },
-  { codigo: 1543, nombre: 'Matemática Discreta 1', creditos: 9 },
-  { codigo: 2558, nombre: 'Cálculo Diferencial e Integral en Varias Variables', creditos: 13 },
-  { codigo: 9274, nombre: 'Geometría y Álgebra Lineal 2', creditos: 9 },
-  { codigo: 1523, nombre: 'Matemática Discreta 2', creditos: 9 },
-  { codigo: 6789, nombre: 'Programación 1', creditos: 10 }
-];
+class Curso {
+  constructor(codigo, nombre, creditos) {
+    this.codigo = codigo;
+    this.nombre = nombre;
+    this.creditos = creditos;
+  }
+}
+
+const cdiv = new Curso(2454, 'Cálculo Diferencial e Integral en Una Variable', 13);
+const galUno = new Curso(8747, 'Geometría y Álgebra Lineal 1', 9);
+const discretaUno = new Curso(1543, 'Matemática Discreta 1', 9);
+const cdivv = new Curso(2558, 'Cálculo Diferencial e Integral en Varias Variables', 13);
+const galDos = new Curso(9274, 'Geometría y Álgebra Lineal 2', 9);
+const discretaDos = new Curso(1523, 'Matemática Discreta 2', 9);
+const progUno = new Curso(6789, 'Programación 1', 10);
+
+let cursos = [cdiv, galUno, discretaUno, cdivv, galDos, discretaDos, progUno];
 let nuevosCursos = [];
-let aniadir = []; 
 
 function numeroDeEstudiante() {
   let num = (prompt('Ingrese su número de estudiante'));
@@ -33,10 +39,11 @@ const consultarCursos = () => {
     console.log('No hay cursos registrados');
     irAlMenu();
   } else {
-    console.log('El listado de sus cursos es el siguiente:')
+    console.log('----------- El listado de sus cursos es el siguiente -----------')
     nuevosCursos.forEach((curso) => {
       console.log(curso.nombre);
     })
+    console.log('----------------------------------------------------------------')
     irAlMenu();
   }
 }
@@ -82,40 +89,27 @@ const consultarCreditos = () => {
 
 const aniadirCurso = () => {
   console.table(cursos);
-  
-  let nuevos = prompt('¿Cuántos cursos desea añadir?');
+  let nuevos = prompt('Ingrese el número de cursos que desea añadir');
 
-  if((nuevos != null) && (nuevos != '') && (!isNaN(nuevos))) {
-    for (i = 0; i < nuevos; i++) {    
-      aniadir.push(Number(prompt('Ingresar el código del curso N°' + (i + 1))));
+  if ((nuevos != null) && (nuevos != '') && (!isNaN(nuevos)) && (nuevos <= 7)) {
+
+    for (i = 0; i < nuevos; i++) {
+      const codigoIngresado = Number(prompt('Ingresar el código del curso N°' + (i + 1)));
+      const cursoIndex = cursos.findIndex(curso => curso.codigo === codigoIngresado);
+
+      if (cursoIndex !== -1 && !nuevosCursos.includes(cursos[cursoIndex])) {
+        nuevosCursos.push(cursos[cursoIndex]);
+        console.log(`Curso con código ${codigoIngresado} agregado correctamente.`);
+      } else {
+        console.log(`Curso con código ${codigoIngresado} no válido o ya agregado.`);
+      }
+
     }
   } else {
-    alert('Debe añadir el número de cursos que desea agregar');
+    alert('El valor ingresado no es válido, debe ser número menor a 7');
     irAlMenu();
-  }      
+  }
   
-  if ((aniadir.includes(2454)) && !nuevosCursos.includes(cursos[0])) {
-    nuevosCursos.push(cursos[0]);
-  }
-  if ((aniadir.includes(8747)) && !nuevosCursos.includes(cursos[1])) {
-    nuevosCursos.push(cursos[1]);
-  }
-  if ((aniadir.includes(1543)) && !nuevosCursos.includes(cursos[2])) {
-    nuevosCursos.push(cursos[2]);
-  }
-  if ((aniadir.includes(2558)) && !nuevosCursos.includes(cursos[3])) {
-    nuevosCursos.push(cursos[3]);
-  }
-  if ((aniadir.includes(9274)) && !nuevosCursos.includes(cursos[4])) {
-    nuevosCursos.push(cursos[4]);
-  }
-  if ((aniadir.includes(1523)) && !nuevosCursos.includes(cursos[5])) {
-    nuevosCursos.push(cursos[5]);
-  }
-  if ((aniadir.includes(6789)) && !nuevosCursos.includes(cursos[6])) {
-    nuevosCursos.push(cursos[6]);
-  }
-
   irAlMenu();
 }
 
@@ -124,12 +118,12 @@ function salir() {
 }
 
 function irAlMenu() {
-  console.log('-----------------------MENÚ-----------------------');
+  console.log('---------------------------- MENÚ -----------------------------');
   console.log('1: Consultar cursos');
   console.log('2: Consultar créditos');
   console.log('3: Añadir curso');
   console.log('4: Salir');
-  console.log('--------------------------------------------------')
+  console.log('----------------------------------------------------------------')
   
   let op = prompt('Seleccione una opción');
 
