@@ -1,15 +1,51 @@
+/* ------- PÁGINA PRINCIAPL ------- */
 body {
-  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgb(13, 119, 212) 87%);
-  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .3)), url(https://upload.wikimedia.org/wikipedia/commons/3/30/Facultad_de_Ingenier%C3%ADa_%28Uruguay%29.jpg);
+  background-attachment: fixed;
+  background-size: cover; 
+}
+
+.color-overlay {
+  background-color: #ffffff;
 }
 
 .title {
   h1 {
-    color: $mainColor;
-    font-size: 2rem;
+    color: #ffffff;
     text-align: center;
     margin: 2rem;
-    font-weight: bold;
+    font-weight: bold;    
   }
 }
 
+.curricula {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.primer__anio,
+.segundo__anio,
+.tercer__anio,
+.cuarto__anio,
+.quinto__anio,
+.opcional { 
+  display: inline-block;
+  border-bottom: solid #ffffff;
+
+  .curso {
+    padding: 1rem;
+    margin: 1rem;
+    transition: 150ms;
+    border-radius: 25px;
+    border-color: transparent;
+
+    &:hover {
+      scale: 1.03;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+  }
+}

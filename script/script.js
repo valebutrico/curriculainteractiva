@@ -54,39 +54,6 @@ const consultarCreditos = () => {
   irAlMenu();
 }
 
-// Esta función fue usada en la entrega anterior porque se solicitaban bucles for, while o do while. La reescribí pero dejo el código por las dudas
-// function aniadirCurso() {
-//   let cursos = prompt('¿Cuántos cursos desea añadir?');
-//   console.log('----------------CURSOS DISPONIBLES----------------')
-//   console.log('1: Cálculo Diferencial e Integral en Una Variable');
-//   console.log('2: Geometría y Álgebra Lineal 1');
-//   console.log('3: Matemática Discreta 1');
-//   console.log('4: Cálculo Diferencial e Integral en Varias Variables');
-//   console.log('5: Geometría y Álgebra Lineal 2');
-//   console.log('6: Matemática Discreta 2');
-//   console.log('7: Programación 1');
-//   console.log('--------------------------------------------------')  
-
-//   for (i = 0; i < cursos; i++) {    
-//     nuevosCursos[i] = [Number(prompt('Añadir el curso N°' + (i + 1)))]
-//   }
-
-//   if (nuevosCursos.length == 1) {
-//     console.log('Se añadió')
-//   }
-
-//   console.log('Se añadieron ' + nuevosCursos.length + ' nuevos cursos a la escolaridad');
-
-//   nuevosCursos.length = 0;
-//   nuevosCursos.splice(0, nuevosCursos.length);
-
-//   while (nuevosCursos.length > 0) {
-//     a.pop();
-//   }  
-
-//   irAlMenu();
-// }
-
 const aniadirCurso = () => {
   console.table(cursos);
   let nuevos = prompt('Ingrese el número de cursos que desea añadir');
@@ -133,7 +100,7 @@ function irAlMenu() {
       break;
     case "2":
       consultarCreditos();      
-      break;1
+      break;
     case "3":
       aniadirCurso();      
       break;
