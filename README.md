@@ -1,6 +1,6 @@
 [![](https://raw.githubusercontent.com/valebutrico/curriculainteractiva/main/img/logofing-completo.png)](https://valebutrico.github.io/curriculainteractiva/)
 
-#CURRÍCULA INTERACTIVA
+# CURRÍCULA INTERACTIVA
 ***
 Este proyecto consiste en una aplicación que permite a los usuarios seleccionar una carrera, llevar un registro de los cursos e informar sobre los requisitos previos necesarios. La aplicación utiliza un árbol genealógico para visualizar la ruta de la carrera y un sistema de previaturas para planificar los cursos. Su objetivo es simplificar la gestión para el alumno y fomentar la toma de decisiones informadas en la elección de cursos y trayectorias académicas.
 ***
