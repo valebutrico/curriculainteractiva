@@ -38,7 +38,7 @@ html {
 
 /* ------- PÁGINA PRINCIAPL ------- */
 body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url(../../img/facultad_de_ingenieria_ph1.avif);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url(../img/facultad_de_ingenieria_ph1.jpg);
   background-attachment: fixed;
   background-size: cover;
 }
