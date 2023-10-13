@@ -16,6 +16,14 @@ body {
     margin: 2rem;
     font-weight: bold;    
   }
+
+  div {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+  }
 }
 
 .curricula {
@@ -27,12 +35,7 @@ body {
   align-items: center;
 }
 
-.primer__anio,
-.segundo__anio,
-.tercer__anio,
-.cuarto__anio,
-.quinto__anio,
-.opcional { 
+.primer__anio, .segundo__anio, .tercer__anio, .cuarto__anio, .quinto__anio, .opcional { 
   display: inline-block;
   border-bottom: solid #ffffff;
 
@@ -42,10 +45,26 @@ body {
     transition: 150ms;
     border-radius: 25px;
     border-color: transparent;
+    background-color: #ffffffc9;
+    color: $fontColor;
+    font-weight: bold;
 
     &:hover {
       scale: 1.03;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
   }
+
+  .aprobado {
+    background-color: #ffba08;
+
+  }
+
+  .exonerado {
+    background-color: #38b000 ;
+  }  
+}
+
+.quinto__anio {
+  border-bottom: none;
 }

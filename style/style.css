@@ -53,6 +53,13 @@ body {
   margin: 2rem;
   font-weight: bold;
 }
+.title div {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+}
 
 .curricula {
   text-align: center;
@@ -63,33 +70,31 @@ body {
   align-items: center;
 }
 
-.primer__anio,
-.segundo__anio,
-.tercer__anio,
-.cuarto__anio,
-.quinto__anio,
-.opcional {
+.primer__anio, .segundo__anio, .tercer__anio, .cuarto__anio, .quinto__anio, .opcional {
   display: inline-block;
   border-bottom: solid #ffffff;
 }
-.primer__anio .curso,
-.segundo__anio .curso,
-.tercer__anio .curso,
-.cuarto__anio .curso,
-.quinto__anio .curso,
-.opcional .curso {
+.primer__anio .curso, .segundo__anio .curso, .tercer__anio .curso, .cuarto__anio .curso, .quinto__anio .curso, .opcional .curso {
   padding: 1rem;
   margin: 1rem;
   transition: 150ms;
   border-radius: 25px;
   border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.7882352941);
+  color: #1d1d1d;
+  font-weight: bold;
 }
-.primer__anio .curso:hover,
-.segundo__anio .curso:hover,
-.tercer__anio .curso:hover,
-.cuarto__anio .curso:hover,
-.quinto__anio .curso:hover,
-.opcional .curso:hover {
+.primer__anio .curso:hover, .segundo__anio .curso:hover, .tercer__anio .curso:hover, .cuarto__anio .curso:hover, .quinto__anio .curso:hover, .opcional .curso:hover {
   scale: 1.03;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.primer__anio .aprobado, .segundo__anio .aprobado, .tercer__anio .aprobado, .cuarto__anio .aprobado, .quinto__anio .aprobado, .opcional .aprobado {
+  background-color: #ffba08;
+}
+.primer__anio .exonerado, .segundo__anio .exonerado, .tercer__anio .exonerado, .cuarto__anio .exonerado, .quinto__anio .exonerado, .opcional .exonerado {
+  background-color: #38b000;
+}
+
+.quinto__anio {
+  border-bottom: none;
 }/*# sourceMappingURL=style.css.map */
