@@ -24,6 +24,7 @@ function construirBotonesDesdeJSON() {
 
 function cargarEstadosDesdeLocalStorage() {
   const botones = document.querySelectorAll('.curso');
+
   botones.forEach(boton => {
     const cursoID = boton.dataset.cursoId;
     const estado = localStorage.getItem(`curso_${cursoID}`);
@@ -49,7 +50,7 @@ function manejarClics(event) {
       localStorage.setItem(`curso_${cursoID}`, 'exonerado');
     } else if (boton.classList.contains('exonerado')) {
       boton.classList.remove('exonerado');
-      localStorage.setItem(`curso_${cursoID}`, 'ninguno'); // Agrega un estado "ninguno" al hacer clic por tercera vez
+      localStorage.setItem(`curso_${cursoID}`, 'ninguno'); 
     } else {
       boton.classList.add('aprobado');
       localStorage.setItem(`curso_${cursoID}`, 'aprobado');

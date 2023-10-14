@@ -89,10 +89,10 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .primer__anio .aprobado, .segundo__anio .aprobado, .tercer__anio .aprobado, .cuarto__anio .aprobado, .quinto__anio .aprobado, .opcional .aprobado {
-  background-color: #ffba08;
+  background-color: rgba(255, 186, 8, 0.7882352941);
 }
 .primer__anio .exonerado, .segundo__anio .exonerado, .tercer__anio .exonerado, .cuarto__anio .exonerado, .quinto__anio .exonerado, .opcional .exonerado {
-  background-color: #38b000;
+  background-color: rgba(56, 176, 0, 0.7882352941);
 }
 
 .quinto__anio {

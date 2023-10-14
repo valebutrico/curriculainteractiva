@@ -180,4 +180,5 @@ const cursosJSON = [
 		"anio": "quinto_anio"
 	}
 ]
+
 export default cursosJSON;
