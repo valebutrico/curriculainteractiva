@@ -7,14 +7,21 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+  scrollbar-width: none;
 }
 *::-moz-selection {
   color: white;
-  background-color: rgb(13, 119, 212);
+  background-color: #0d77d4;
 }
 *::selection {
   color: white;
-  background-color: rgb(13, 119, 212);
+  background-color: #0d77d4;
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url(../img/facultad_de_ingenieria_ph1.avif);
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 a:focus-visible {
@@ -23,16 +30,12 @@ a:focus-visible {
   padding: 4px;
 }
 
-html {
-  scroll-padding-top: 260px;
-}
-
 ::-webkit-scrollbar-thumb {
   background: transparent;
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 0;
   background: transparent;
 }
 
@@ -68,16 +71,6 @@ html {
   }
 }
 /* ------- PÁGINA PRINCIAPL ------- */
-body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url(../img/facultad_de_ingenieria_ph1.avif);
-  background-attachment: fixed;
-  background-size: cover;
-}
-
-.color-overlay {
-  background-color: #ffffff;
-}
-
 .title h1 {
   color: #ffffff;
   text-align: center;
@@ -106,7 +99,7 @@ body {
   border-bottom: solid #ffffff;
 }
 .primer__anio .curso, .segundo__anio .curso, .tercer__anio .curso, .cuarto__anio .curso, .quinto__anio .curso, .opcional .curso {
-  padding: 1rem;
+  padding: 0.8rem;
   margin: 1rem;
   transition: 150ms;
   border-radius: 25px;

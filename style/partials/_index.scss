@@ -1,14 +1,4 @@
 /* ------- PÁGINA PRINCIAPL ------- */
-body {
-  background-image: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .3)), url(../img/facultad_de_ingenieria_ph1.avif);
-  background-attachment: fixed;
-  background-size: cover; 
-}
-
-.color-overlay {
-  background-color: #ffffff;
-}
-
 .title {
   h1 {
     color: #ffffff;
@@ -40,7 +30,7 @@ body {
   border-bottom: solid #ffffff;
 
   .curso {
-    padding: 1rem;
+    padding: .8rem;
     margin: 1rem;
     transition: 150ms;
     border-radius: 25px;

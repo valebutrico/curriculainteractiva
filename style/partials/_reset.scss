@@ -4,11 +4,18 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: $fontMontserrat;
+	scrollbar-width: none;
 
   &::selection {
     color: white;
     background-color: $mainColor;
   }
+}
+
+body {
+  background-image: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .3)), url(../img/facultad_de_ingenieria_ph1.avif);
+  background-attachment: fixed;
+  background-size: cover; 
 }
 
 a:focus-visible {
@@ -17,15 +24,11 @@ a:focus-visible {
 	padding: 4px;
 }
 
- html {
-  scroll-padding-top: 260px;
- }
-
- ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
 	background: transparent;
 }
 
 ::-webkit-scrollbar {
-	width: 0px; 
+	width: 0; 
 	background: transparent;
 }
