@@ -1,4 +1,4 @@
-const cursosJSON = [
+[
 	{
 		"creditos": 4,
 		"id": 0,
@@ -180,5 +180,3 @@ const cursosJSON = [
 		"anio": "quinto_anio"
 	}
 ]
-
-export default cursosJSON;

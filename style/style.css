@@ -36,11 +36,34 @@ html {
   max-width: 200px;
 }
 
+.loader {
+  position: fixed;
+  background-color: white;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disappear {
+  animation: vanish 300ms forwards;
+}
+
+@keyframes vanish {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 /* ------- PÁGINA PRINCIAPL ------- */
 body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url(../img/facultad_de_ingenieria_ph1.avif);
   background-attachment: fixed;
   background-size: cover;
+  overflow-y: hidden;
 }
 
 .color-overlay {

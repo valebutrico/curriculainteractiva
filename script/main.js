@@ -1,4 +1,19 @@
-import cursosJSON from './cursos.js';
+let cursosJSON = [];
+
+fetch("./script/cursos.json")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("No se pudo cargar el archivo JSON.");
+    }
+    return response.json();
+  })
+  .then(data => {
+    cursosJSON = data;
+    construirBotonesDesdeJSON();
+  })
+  .catch(error => {
+    console.error("Error al cargar datos desde el archivo JSON:", error);
+  });
 
 function construirBotonesDesdeJSON() {
   const contenedores = document.querySelectorAll('.curricula div'); 
@@ -90,5 +105,10 @@ if (creditosGuardados) {
 const contenedorCursos = document.querySelector('.curricula');
 contenedorCursos.addEventListener('click', manejarClics);
 
-cargarEstadosDesdeLocalStorage();
-construirBotonesDesdeJSON();
+let loader = document.querySelector('.loader');
+
+window.addEventListener("load", vanish);
+
+function vanish() {
+  loader.classList.add('disappear');
+}
