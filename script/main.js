@@ -1,3 +1,11 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const isUserRegistered = localStorage.getItem('userCredentials') !== null;
+
+  if (!isUserRegistered) {
+      window.location.href = 'login.html';
+  }
+});
+
 let cursosJSON = [];
 
 fetch("./script/cursos.json")

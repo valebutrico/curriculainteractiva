@@ -1,24 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const loginForm = document.querySelector('.login__form');
+  const registerForm = document.querySelector('.login__form');
 
-  loginForm.addEventListener('submit', function (e) {
+  registerForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const enteredCredentials = {
+    const newUserCredentials = {
       email: document.getElementById('login-email').value,
       password: document.getElementById('login-pass').value,
     };
 
     const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
 
-    const userExists = registeredUsers.some((user) =>
-      user.email === enteredCredentials.email && user.password === enteredCredentials.password
-    );
+    const userExists = registeredUsers.some((user) => user.email === newUserCredentials.email);
 
     if (userExists) {
-      window.location.href = 'index.html';
+      alert('Este usuario ya está registrado. Por favor, inicia sesión.');
     } else {
-      alert('Credenciales incorrectas. Inténtalo de nuevo.');
+      registeredUsers.push(newUserCredentials);
+
+      localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+
+      window.location.href = 'login.html';
     }
   });
 });

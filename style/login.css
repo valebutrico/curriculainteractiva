@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 /*=============== VARIABLES ===============*/
 :root {
   --white-color: hsl(0, 0%, 100%);
@@ -46,6 +46,12 @@ img {
 
 /*=============== LOGIN ===============*/
 .login {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+}
+.register {
   position: relative;
   height: 100vh;
   display: grid;
@@ -176,6 +182,9 @@ img {
 /*=============== BREAKPOINTS ===============*/
 @media screen and (min-width: 576px) {
   .login {
+    justify-content: center;
+  }
+  .register {
     justify-content: center;
   }
   .login__form {
