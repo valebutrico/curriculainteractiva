@@ -1,12 +1,13 @@
 @charset "UTF-8";
-/* ------- FUENTES / VARIABLES------- */
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;1,300&display=swap");
-/* ------- RESETEO ------- */
+/*=============== FUENTES Y VAR ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+/*=============== MEDIA QUERIES ===============*/
+/*=============== RESETEO ===============*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
   scrollbar-width: none;
 }
 *::-moz-selection {
@@ -22,6 +23,11 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url(../img/facultad_de_ingenieria_ph1.avif);
   background-attachment: fixed;
   background-size: cover;
+}
+@media screen and (max-width: 920px) {
+  body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url(../img/facultad_de_ingenieria_ph6.avif);
+  }
 }
 
 a:focus-visible {
@@ -39,6 +45,7 @@ a:focus-visible {
   background: transparent;
 }
 
+/*=============== AJUSTES BOOTSTRAP ===============*/
 .table {
   max-width: 800px;
   margin: 0 auto;
@@ -48,6 +55,7 @@ a:focus-visible {
   max-width: 200px;
 }
 
+/*=============== PRELOADER ===============*/
 .loader {
   position: fixed;
   background-color: white;
@@ -70,7 +78,7 @@ a:focus-visible {
     visibility: hidden;
   }
 }
-/* ------- PÁGINA PRINCIAPL ------- */
+/*=============== PÁGINA PRINCIAPL ===============*/
 .title h1 {
   color: #ffffff;
   text-align: center;

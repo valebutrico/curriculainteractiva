@@ -1,3 +1,4 @@
+/*=============== MEDIA QUERIES ===============*/
 @mixin desktop {
   @media screen and (max-width: 1450px){
     @content;

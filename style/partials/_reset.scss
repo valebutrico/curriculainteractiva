@@ -1,9 +1,9 @@
-/* ------- RESETEO ------- */
+/*=============== RESETEO ===============*/
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: $fontMontserrat;
+	font-family: $fontPoppins;
 	scrollbar-width: none;
 
   &::selection {
@@ -15,7 +15,11 @@
 body {
   background-image: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .3)), url(../img/facultad_de_ingenieria_ph1.avif);
   background-attachment: fixed;
-  background-size: cover; 
+  background-size: cover;
+
+	@include tablet {
+		background-image: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .3)), url(../img/facultad_de_ingenieria_ph6.avif);
+	}
 }
 
 a:focus-visible {
