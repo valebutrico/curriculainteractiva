@@ -1,11 +1,13 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const isUserRegistered = localStorage.getItem('userCredentials') !== null;
+/*=============== LOADER ===============*/
+let loader = document.querySelector('.loader');
 
-  if (!isUserRegistered) {
-      window.location.href = 'login.html';
-  }
-});
+window.addEventListener("load", vanish);
 
+function vanish() {
+  loader.classList.add('disappear');
+}
+
+/*=============== MAIN ===============*/
 let cursosJSON = [];
 
 fetch("./script/cursos.json")
@@ -113,10 +115,18 @@ if (creditosGuardados) {
 const contenedorCursos = document.querySelector('.curricula');
 contenedorCursos.addEventListener('click', manejarClics);
 
-let loader = document.querySelector('.loader');
+document.addEventListener('DOMContentLoaded', function () {
+  const userEmailElement = document.getElementById('user-email');
+  const logoutButton = document.getElementById('logout-button');
+  const userCredentials = JSON.parse(localStorage.getItem('userCredentials'));
 
-window.addEventListener("load", vanish);
+  if (userCredentials) {
+    userEmailElement.textContent = `${userCredentials.email}`;
+  } else {
+    window.location.href = 'login.html';
+  }
 
-function vanish() {
-  loader.classList.add('disappear');
-}
+  logoutButton.addEventListener('click', function () {
+  window.location.href = 'login.html';
+  });
+});

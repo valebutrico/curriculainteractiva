@@ -1,48 +1,48 @@
+/*=============== REGISTER ===============*/
 document.addEventListener('DOMContentLoaded', function () {
-  const registerForm = document.querySelector('.login__form');
+  const registerForm = document.querySelector('.register__form');
+  const emailInput = document.getElementById('register-email');
+  const passwordInput = document.getElementById('register-pass');
 
   registerForm.addEventListener('submit', function (e) {
     e.preventDefault();
+   
+    if (localStorage.getItem('userCredentials') !== null) {
+      const confirmation = confirm('Ya existe un usuario registrado. Si presionas continuar, se eliminará el usuario anterior');
 
-    const newUserCredentials = {
-      email: document.getElementById('login-email').value,
-      password: document.getElementById('login-pass').value,
-    };
-
-    const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-
-    const userExists = registeredUsers.some((user) => user.email === newUserCredentials.email);
-
-    if (userExists) {
-      alert('Este usuario ya está registrado. Por favor, inicia sesión.');
-    } else {
-      registeredUsers.push(newUserCredentials);
-
-      localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
-
-      window.location.href = 'login.html';
+      if (!confirmation) {
+        emailInput.value = '';
+        passwordInput.value = '';
+        return;
+      }
     }
+
+    const enteredCredentials = {
+      email: document.getElementById('register-email').value,
+      password: document.getElementById('register-pass').value,
+    };    
+
+    localStorage.setItem('userCredentials', JSON.stringify(enteredCredentials));
+    window.location.href = 'login.html';
   });
 });
 
 /*=============== MOSTRAR CONTRASEÑA ===============*/
-const mostrarContrasenia = (loginPass, loginEye) =>{
-  const input = document.getElementById(loginPass),
-   iconEye = document.getElementById(loginEye)
+const mostrarContrasenia = (registerPass, registerEye) => {
+  const input = document.getElementById(registerPass);
+  const iconEye = document.getElementById(registerEye);
 
-   iconEye.addEventListener('click', () =>{
-     if(input.type === 'password'){
-      input.type = 'text'
-
-      iconEye.classList.add('ri-eye-line')
-      iconEye.classList.remove('ri-eye-off-line')
-      } else{
-      input.type = 'password'
-
-      iconEye.classList.remove('ri-eye-line')
-      iconEye.classList.add('ri-eye-off-line')
-      }
-   })
+  iconEye.addEventListener('click', () => {
+    if (input.type === 'password') {
+      input.type = 'text';
+      iconEye.classList.add('ri-eye-line');
+      iconEye.classList.remove('ri-eye-off-line');
+    } else {
+      input.type = 'password';
+      iconEye.classList.remove('ri-eye-line');
+      iconEye.classList.add('ri-eye-off-line');
+    }
+  });
 }
 
-mostrarContrasenia('login-pass','login-eye')
+mostrarContrasenia('register-pass', 'register-eye');

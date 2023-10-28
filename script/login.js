@@ -1,5 +1,8 @@
+/*=============== LOGIN ===============*/
 document.addEventListener('DOMContentLoaded', function () {
   const loginForm = document.querySelector('.login__form');
+  const emailInput = document.getElementById('login-email');
+  const passwordInput = document.getElementById('login-pass');
 
   loginForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -9,38 +12,34 @@ document.addEventListener('DOMContentLoaded', function () {
       password: document.getElementById('login-pass').value,
     };
 
-    const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+    const userCredentials = JSON.parse(localStorage.getItem('userCredentials'));
 
-    const userExists = registeredUsers.some((user) =>
-      user.email === enteredCredentials.email && user.password === enteredCredentials.password
-    );
-
-    if (userExists) {
+    if (userCredentials && userCredentials.email === enteredCredentials.email && userCredentials.password === enteredCredentials.password) {
       window.location.href = 'index.html';
     } else {
-      alert('Credenciales incorrectas. Inténtalo de nuevo.');
+      alert('Email o contraseña incorrecta! Inténtalo de nuevo o regístrate');
+      emailInput.value = '';
+      passwordInput.value = '';
     }
   });
 });
 
 /*=============== MOSTRAR CONTRASEÑA ===============*/
-const mostrarContrasenia = (loginPass, loginEye) =>{
-  const input = document.getElementById(loginPass),
-   iconEye = document.getElementById(loginEye)
+const mostrarContrasenia = (loginPass, loginEye) => {
+  const input = document.getElementById(loginPass);
+  const iconEye = document.getElementById(loginEye);
 
-   iconEye.addEventListener('click', () =>{
-     if(input.type === 'password'){
-      input.type = 'text'
-
-      iconEye.classList.add('ri-eye-line')
-      iconEye.classList.remove('ri-eye-off-line')
-      } else{
-      input.type = 'password'
-
-      iconEye.classList.remove('ri-eye-line')
-      iconEye.classList.add('ri-eye-off-line')
-      }
-   })
+  iconEye.addEventListener('click', () => {
+    if (input.type === 'password') {
+      input.type = 'text';
+      iconEye.classList.add('ri-eye-line');
+      iconEye.classList.remove('ri-eye-off-line');
+    } else {
+      input.type = 'password';
+      iconEye.classList.remove('ri-eye-line');
+      iconEye.classList.add('ri-eye-off-line');
+    }
+  });
 }
 
-mostrarContrasenia('login-pass','login-eye')
+mostrarContrasenia('login-pass', 'login-eye');

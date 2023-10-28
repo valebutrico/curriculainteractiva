@@ -78,11 +78,34 @@ a:focus-visible {
     visibility: hidden;
   }
 }
+/*=============== HEADER ===============*/
+header {
+  display: flex;
+  height: 5rem;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+header p {
+  margin: 0 5%;
+}
+header button {
+  margin: 0 5%;
+  padding: 0.7rem;
+  background-color: transparent;
+  border-radius: 25px;
+  border: solid white 1.7px;
+  color: white;
+  transition: all 300ms;
+}
+header button:hover {
+  scale: 1.09;
+}
+
 /*=============== PÁGINA PRINCIAPL ===============*/
 .title h1 {
   color: #ffffff;
   text-align: center;
-  margin: 2rem;
   font-weight: bold;
 }
 .title div {
