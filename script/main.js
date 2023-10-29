@@ -7,6 +7,23 @@ function vanish() {
   loader.classList.add('disappear');
 }
 
+/*=============== LOGOUT ===============*/
+document.addEventListener('DOMContentLoaded', function () {
+  const userEmailElement = document.getElementById('user-email');
+  const logoutButton = document.getElementById('logout-button');
+  const userCredentials = JSON.parse(localStorage.getItem('userCredentials'));
+
+  if (userCredentials) {
+    userEmailElement.textContent = `${userCredentials.email}`;
+  } else {
+    window.location.href = 'login.html';
+  }
+
+  logoutButton.addEventListener('click', function () {
+  window.location.href = 'login.html';
+  });
+});
+
 /*=============== MAIN ===============*/
 let cursosJSON = [];
 
@@ -24,6 +41,7 @@ fetch("./script/cursos.json")
   .catch(error => {
     console.error("Error al cargar datos desde el archivo JSON:", error);
   });
+
 
 function construirBotonesDesdeJSON() {
   const contenedores = document.querySelectorAll('.curricula div'); 
@@ -114,19 +132,3 @@ if (creditosGuardados) {
 
 const contenedorCursos = document.querySelector('.curricula');
 contenedorCursos.addEventListener('click', manejarClics);
-
-document.addEventListener('DOMContentLoaded', function () {
-  const userEmailElement = document.getElementById('user-email');
-  const logoutButton = document.getElementById('logout-button');
-  const userCredentials = JSON.parse(localStorage.getItem('userCredentials'));
-
-  if (userCredentials) {
-    userEmailElement.textContent = `${userCredentials.email}`;
-  } else {
-    window.location.href = 'login.html';
-  }
-
-  logoutButton.addEventListener('click', function () {
-  window.location.href = 'login.html';
-  });
-});

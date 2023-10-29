@@ -151,6 +151,7 @@ img {
   font-weight: var(--font-medium);
   cursor: pointer;
   margin-bottom: 2rem;
+  margin-top: 1.5rem;
   box-shadow: rgba(99, 99, 99, 0.5) 0px 2px 8px 0px;
 }
 .login__register, .register__register {
@@ -187,4 +188,8 @@ img {
   .login__title, .register__title {
     font-size: 2rem;
   }
+}
+
+.swal2-confirm {
+  background-color: #0d77d4 !important;
 }

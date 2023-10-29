@@ -6,26 +6,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
   registerForm.addEventListener('submit', function (e) {
     e.preventDefault();
-   
+  
     if (localStorage.getItem('userCredentials') !== null) {
-      const confirmation = confirm('Ya existe un usuario registrado. Si presionas continuar, se eliminará el usuario anterior');
-
-      if (!confirmation) {
-        emailInput.value = '';
-        passwordInput.value = '';
-        return;
-      }
+      Swal.fire({
+        title: '¡Cuidado!',
+        text: 'Ya existe un usuario en este navegador, si le da a aceptar, se eliminará al usuario anterior para crear uno nuevo.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Rechazar',
+      }).then((result) => {
+        guardarYRedirigir(result);
+      });
+    } else {
+      guardarYRedirigir();
     }
-
-    const enteredCredentials = {
-      email: document.getElementById('register-email').value,
-      password: document.getElementById('register-pass').value,
-    };    
-
-    localStorage.setItem('userCredentials', JSON.stringify(enteredCredentials));
-    window.location.href = 'login.html';
   });
+  
+  function guardarYRedirigir(result) {
+    if (result.isConfirmed) {
+      const enteredCredentials = {
+        email: document.getElementById('register-email').value,
+        password: document.getElementById('register-pass').value,
+      };
+  
+      localStorage.setItem('userCredentials', JSON.stringify(enteredCredentials));
+      window.location.href = 'login.html';
+    } else {
+      emailInput.value = '';
+      passwordInput.value = '';
+    }
+  }
 });
+  
 
 /*=============== MOSTRAR CONTRASEÑA ===============*/
 const mostrarContrasenia = (registerPass, registerEye) => {

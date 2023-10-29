@@ -17,7 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (userCredentials && userCredentials.email === enteredCredentials.email && userCredentials.password === enteredCredentials.password) {
       window.location.href = 'index.html';
     } else {
-      alert('Email o contraseña incorrecta! Inténtalo de nuevo o regístrate');
+      Swal.fire({
+        title: 'Email o contraseña incorrecta!',
+        text: 'Inténta de nuevo o regístrate',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      })      
       emailInput.value = '';
       passwordInput.value = '';
     }
