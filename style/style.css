@@ -192,6 +192,9 @@ header button:hover {
 .primer__anio .exonerado, .segundo__anio .exonerado, .tercer__anio .exonerado, .cuarto__anio .exonerado, .quinto__anio .exonerado {
   background-color: rgba(56, 176, 0, 0.7882352941);
 }
-.primer__anio .deshabilitado, .segundo__anio .deshabilitado, .tercer__anio .deshabilitado, .cuarto__anio .deshabilitado, .quinto__anio .deshabilitado {
-  background-color: red;
+
+button.visualmente-deshabilitado {
+  /* Estilos para botón deshabilitado visualmente */
+  opacity: 0.5;
+  cursor: not-allowed;
 }/*# sourceMappingURL=style.css.map */

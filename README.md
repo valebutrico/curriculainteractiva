@@ -2,7 +2,7 @@
 
 # CURRÍCULA INTERACTIVA
 ***
-Este proyecto consiste en una aplicación que permite al usuario iniciar sesión y llevar un registro de sus cursos en la carrera de Ingeniería en Computación de la UdelaR. Su objetivo es simplificar la visualización de los mismos y su ubicación en la currícula esperada. De esta forma ayudar al alumno a gestionar la toma de decisiones sobre la trayectoria académica deseada. 
+La aplicación está diseñada para estudiantes de Ingeniería en Computación de la UdelaR, ofreciendo una herramienta intuitiva para gestionar y visualizar su progreso académico. Permite a los usuarios iniciar sesión para mantener un seguimiento personalizado de sus cursos, integrando un sistema de previaturas que clarifica qué asignaturas deben ser aprobadas o exoneradas antes de poder inscribirse en cursos avanzados. Este enfoque busca facilitar la planificación de la carrera del estudiante y apoyar una toma de decisiones informada sobre su trayectoria educativa.
 ***
 ### Composición 🤓✍📐
 1. index / login / register

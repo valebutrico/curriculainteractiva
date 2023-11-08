@@ -63,6 +63,7 @@ function construirBotonesDesdeJSON() {
 
   cargarEstadosDesdeLocalStorage();
   calcularCreditosTotales();
+  actualizarEstadoBotones();
 }
 
 function cargarEstadosDesdeLocalStorage() {
@@ -78,28 +79,96 @@ function cargarEstadosDesdeLocalStorage() {
       boton.classList.add('exonerado');
     }
   });
+
+  actualizarEstadoBotones();
+}
+
+function actualizarEstadoBotones() {
+  const botones = document.querySelectorAll('.curso');
+
+  botones.forEach(boton => {
+    const cursoID = parseInt(boton.dataset.cursoId);
+    const curso = cursosJSON.find(curso => curso.id === cursoID);
+
+    const requisitosAprobados = curso.requisitoAprobado.every(id => {
+      const botonRequisito = document.querySelector(`.curso[data-curso-id="${id}"]`);
+      return botonRequisito && botonRequisito.classList.contains('aprobado');
+    });
+
+    const requisitosExonerados = curso.requisitoExonerado.every(id => {
+      const botonRequisito = document.querySelector(`.curso[data-curso-id="${id}"]`);
+      return botonRequisito && botonRequisito.classList.contains('exonerado');
+    });
+
+    if (!requisitosAprobados || !requisitosExonerados) {
+      boton.classList.add('visualmente-deshabilitado');
+    } else {
+      boton.classList.remove('visualmente-deshabilitado');
+    }
+  });
 }
 
 function manejarClics(event) {
   const boton = event.target;
 
   if (boton.classList.contains('curso')) {
-    const cursoID = boton.dataset.cursoId;
-
-    if (boton.classList.contains('aprobado')) {
-      boton.classList.remove('aprobado');
-      boton.classList.add('exonerado');
-
-      localStorage.setItem(`curso_${cursoID}`, 'exonerado');
-    } else if (boton.classList.contains('exonerado')) {
-      boton.classList.remove('exonerado');
-      localStorage.setItem(`curso_${cursoID}`, 'ninguno'); 
+    if (boton.classList.contains('visualmente-deshabilitado')) {
+      mostrarRequisitos(boton);
     } else {
-      boton.classList.add('aprobado');
-      localStorage.setItem(`curso_${cursoID}`, 'aprobado');
-    }
+      const cursoID = boton.dataset.cursoId;
 
-    calcularCreditosTotales();
+      if (!boton.classList.contains('aprobado')) {
+        boton.classList.add('aprobado');
+        localStorage.setItem(`curso_${cursoID}`, 'aprobado');
+      } else if (!boton.classList.contains('exonerado')) {
+        boton.classList.add('exonerado');
+        localStorage.setItem(`curso_${cursoID}`, 'exonerado');
+      } else {
+        boton.classList.remove('aprobado', 'exonerado');
+        localStorage.setItem(`curso_${cursoID}`, 'ninguno');
+      }
+
+      calcularCreditosTotales();
+      actualizarEstadoBotones();
+    }
+  }
+}
+
+function mostrarRequisitos(boton) {
+  const cursoID = parseInt(boton.dataset.cursoId);
+  const curso = cursosJSON.find(curso => curso.id === cursoID);
+
+  let requisitosAprobados = [];
+  let requisitosExonerados = [];
+
+  if (curso.requisitoAprobado.length > 0) {
+    requisitosAprobados = curso.requisitoAprobado.map(id => {
+      return cursosJSON.find(curso => curso.id === id).nombre;
+    });
+  }
+
+  if (curso.requisitoExonerado.length > 0) {
+    requisitosExonerados = curso.requisitoExonerado.map(id => {
+      return cursosJSON.find(curso => curso.id === id).nombre;
+    });
+  }
+
+  let mensaje = '';
+  if (requisitosAprobados.length > 0) {
+    mensaje += `<p><strong>Necesitas al menos aprobar:</strong><br>${requisitosAprobados.join(', ')}</p>`;
+  }
+  if (requisitosExonerados.length > 0) {
+    if (mensaje !== '') mensaje += '<br>';
+    mensaje += `<p><strong>Necesitas exonerar:</strong><br>${requisitosExonerados.join(', ')}</p>`;
+  }
+
+  if (mensaje !== '') {
+    Swal.fire({
+      title: 'Requisitos pendientes',
+      html: mensaje,
+      icon: 'info',
+      confirmButtonText: 'Entendido'
+    });
   }
 }
 
@@ -124,19 +193,6 @@ function calcularCreditosTotales() {
   localStorage.setItem('creditosTotales', creditosTotales);
 }
 
-const creditosGuardados = localStorage.getItem('creditosTotales');
-if (creditosGuardados) {
-  const creditosTotalesDiv = document.getElementById('creditosTotales');
-  creditosTotalesDiv.textContent = `Créditos Totales: ${creditosGuardados}`;
-}
-
-const contenedorCursos = document.querySelector('.curricula');
-contenedorCursos.addEventListener('click', manejarClics);
-
-
-const limpiarButton = document.querySelector('.limpiar button');
-limpiarButton.addEventListener('click', limpiarCurricula);
-
 function limpiarCurricula() {
   const botones = document.querySelectorAll('.curso');
 
@@ -150,4 +206,18 @@ function limpiarCurricula() {
   const creditosTotalesDiv = document.getElementById('creditosTotales');
   creditosTotalesDiv.textContent = 'Créditos Totales: 0';
   localStorage.setItem('creditosTotales', 0);
+
+  actualizarEstadoBotones();
 }
+
+const creditosGuardados = localStorage.getItem('creditosTotales');
+if (creditosGuardados) {
+  const creditosTotalesDiv = document.getElementById('creditosTotales');
+  creditosTotalesDiv.textContent = `Créditos Totales: ${creditosGuardados}`;
+}
+
+const contenedorCursos = document.querySelector('.curricula');
+contenedorCursos.addEventListener('click', manejarClics);
+
+const limpiarButton = document.querySelector('.limpiar button');
+limpiarButton.addEventListener('click', limpiarCurricula);

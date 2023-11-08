@@ -101,8 +101,10 @@
   .exonerado {
     background-color: #38b000c9;
   }
+}
 
-  .deshabilitado {
-    background-color: red;
-  }
+button.visualmente-deshabilitado {
+  /* Estilos para botón deshabilitado visualmente */
+  opacity: 0.5;
+  cursor: not-allowed;
 }
