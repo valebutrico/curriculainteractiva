@@ -89,10 +89,10 @@ function actualizarEstadoBotones() {
   botones.forEach(boton => {
     const cursoID = parseInt(boton.dataset.cursoId);
     const curso = cursosJSON.find(curso => curso.id === cursoID);
-
+    
     const requisitosAprobados = curso.requisitoAprobado.every(id => {
       const botonRequisito = document.querySelector(`.curso[data-curso-id="${id}"]`);
-      return botonRequisito && botonRequisito.classList.contains('aprobado');
+      return botonRequisito && (botonRequisito.classList.contains('aprobado') || botonRequisito.classList.contains('exonerado'));
     });
 
     const requisitosExonerados = curso.requisitoExonerado.every(id => {
@@ -102,9 +102,14 @@ function actualizarEstadoBotones() {
 
     if (!requisitosAprobados || !requisitosExonerados) {
       boton.classList.add('visualmente-deshabilitado');
+      boton.classList.remove('aprobado', 'exonerado');
+
+      localStorage.setItem(`curso_${cursoID}`, 'ninguno');
     } else {
-      boton.classList.remove('visualmente-deshabilitado');
+      boton.classList.remove('visualmente-deshabilitado');    
     }
+
+    calcularCreditosTotales();
   });
 }
 
@@ -155,11 +160,11 @@ function mostrarRequisitos(boton) {
 
   let mensaje = '';
   if (requisitosAprobados.length > 0) {
-    mensaje += `<p><strong>Necesitas al menos aprobar:</strong><br>${requisitosAprobados.join(', ')}</p>`;
+    mensaje += `<p><strong>Necesitas al menos aprobar:</strong><br>${requisitosAprobados.join('<br>')}</p>`;
   }
   if (requisitosExonerados.length > 0) {
     if (mensaje !== '') mensaje += '<br>';
-    mensaje += `<p><strong>Necesitas exonerar:</strong><br>${requisitosExonerados.join(', ')}</p>`;
+    mensaje += `<p><strong>Necesitas exonerar:</strong><br>${requisitosExonerados.join('<br>')}</p>`;
   }
 
   if (mensaje !== '') {
