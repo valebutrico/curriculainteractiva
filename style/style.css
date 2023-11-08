@@ -103,33 +103,76 @@ header button:hover {
 }
 
 /*=============== PÁGINA PRINCIAPL ===============*/
-.title h1 {
+.title {
   color: #ffffff;
+}
+.title h1 {
   text-align: center;
   font-weight: bold;
 }
-.title div {
-  max-width: 400px;
-  margin: 0 auto;
+.title .guia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.title .guia p {
+  margin: 0;
+  padding: 0.7rem;
+  border-radius: 25px;
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.7882352941);
+  color: #1d1d1d;
+  font-weight: bold;
+  font-size: 17px;
+}
+.title .guia .aprobado {
+  background-color: rgba(255, 186, 8, 0.7882352941);
+}
+.title .guia .exonerado {
+  background-color: rgba(56, 176, 0, 0.7882352941);
+}
+.title .creditos {
   text-align: center;
   font-size: 1.5rem;
-  color: #ffffff;
+  margin-top: 1rem;
+}
+
+.limpiar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.limpiar-btn {
+  padding: 0.4rem 0.8rem;
+  margin: 0;
+  transition: 150ms;
+  border-radius: 25px;
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.7882352941);
+  color: #1d1d1d;
+  font-weight: bold;
+}
+.limpiar-btn:hover {
+  scale: 1.03;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .curricula {
   text-align: center;
+  color: #ffffff;
   width: 80%;
-  margin: 0 auto;
+  margin: 1rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.primer__anio, .segundo__anio, .tercer__anio, .cuarto__anio, .quinto__anio, .opcional {
+.primer__anio, .segundo__anio, .tercer__anio, .cuarto__anio, .quinto__anio {
   display: inline-block;
-  border-bottom: solid #ffffff;
+  border-top: solid #ffffff;
 }
-.primer__anio .curso, .segundo__anio .curso, .tercer__anio .curso, .cuarto__anio .curso, .quinto__anio .curso, .opcional .curso {
+.primer__anio .curso, .segundo__anio .curso, .tercer__anio .curso, .cuarto__anio .curso, .quinto__anio .curso {
   padding: 0.8rem;
   margin: 1rem;
   transition: 150ms;
@@ -139,20 +182,16 @@ header button:hover {
   color: #1d1d1d;
   font-weight: bold;
 }
-.primer__anio .curso:hover, .segundo__anio .curso:hover, .tercer__anio .curso:hover, .cuarto__anio .curso:hover, .quinto__anio .curso:hover, .opcional .curso:hover {
+.primer__anio .curso:hover, .segundo__anio .curso:hover, .tercer__anio .curso:hover, .cuarto__anio .curso:hover, .quinto__anio .curso:hover {
   scale: 1.03;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.primer__anio .aprobado, .segundo__anio .aprobado, .tercer__anio .aprobado, .cuarto__anio .aprobado, .quinto__anio .aprobado, .opcional .aprobado {
+.primer__anio .aprobado, .segundo__anio .aprobado, .tercer__anio .aprobado, .cuarto__anio .aprobado, .quinto__anio .aprobado {
   background-color: rgba(255, 186, 8, 0.7882352941);
 }
-.primer__anio .exonerado, .segundo__anio .exonerado, .tercer__anio .exonerado, .cuarto__anio .exonerado, .quinto__anio .exonerado, .opcional .exonerado {
+.primer__anio .exonerado, .segundo__anio .exonerado, .tercer__anio .exonerado, .cuarto__anio .exonerado, .quinto__anio .exonerado {
   background-color: rgba(56, 176, 0, 0.7882352941);
 }
-.primer__anio .deshabilitado, .segundo__anio .deshabilitado, .tercer__anio .deshabilitado, .cuarto__anio .deshabilitado, .quinto__anio .deshabilitado, .opcional .deshabilitado {
+.primer__anio .deshabilitado, .segundo__anio .deshabilitado, .tercer__anio .deshabilitado, .cuarto__anio .deshabilitado, .quinto__anio .deshabilitado {
   background-color: red;
-}
-
-.quinto__anio {
-  border-bottom: none;
 }/*# sourceMappingURL=style.css.map */

@@ -132,3 +132,22 @@ if (creditosGuardados) {
 
 const contenedorCursos = document.querySelector('.curricula');
 contenedorCursos.addEventListener('click', manejarClics);
+
+
+const limpiarButton = document.querySelector('.limpiar button');
+limpiarButton.addEventListener('click', limpiarCurricula);
+
+function limpiarCurricula() {
+  const botones = document.querySelectorAll('.curso');
+
+  botones.forEach(boton => {
+    boton.classList.remove('aprobado', 'exonerado', 'deshabilitado');
+
+    const cursoID = boton.dataset.cursoId;
+    localStorage.setItem(`curso_${cursoID}`, 'ninguno');
+  });
+
+  const creditosTotalesDiv = document.getElementById('creditosTotales');
+  creditosTotalesDiv.textContent = 'Créditos Totales: 0';
+  localStorage.setItem('creditosTotales', 0);
+}

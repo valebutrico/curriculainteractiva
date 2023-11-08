@@ -1,11 +1,5 @@
 [
   {
-    "creditos": 4,
-    "id": 0,
-    "nombre": "Matemática Inicial",
-    "anio": "opcional"
-  },
-  {
     "creditos": 13,
     "id": 1,
     "nombre": "Cálculo Diferencial e Integral en Una Variable",

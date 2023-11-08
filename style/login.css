@@ -116,33 +116,6 @@ img {
   z-index: 10;
   cursor: pointer;
 }
-.login__box:nth-child(2) input, .register__box:nth-child(2) input {
-  padding-right: 1.8rem;
-}
-.login__check, .login__check-group, .register__check, .register__check-group {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.login__check, .register__check {
-  margin-bottom: 1.5rem;
-}
-.login__check-label, .register__forgot, .register__register, .register__check-label, .register__forgot, .register__register {
-  font-size: var(--small-font-size);
-}
-.login__check-group, .register__check-group {
-  column-gap: 0.5rem;
-}
-.login__check-input, .register__check-input {
-  width: 16px;
-  height: 16px;
-}
-.login__forgot, .register__forgot {
-  color: var(--black-color);
-}
-.login__forgot:hover, .register__forgot:hover {
-  text-decoration: underline;
-}
 .login__button, .register__button {
   width: 100%;
   padding: 1rem;

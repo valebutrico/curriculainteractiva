@@ -1,32 +1,81 @@
 /*=============== PÁGINA PRINCIAPL ===============*/
-.title {
+.title {  
+  color: #ffffff;
+
   h1 {
-    color: #ffffff;
     text-align: center;
     font-weight: bold;    
   }
 
-  div {
-    max-width: 400px;
-    margin: 0 auto;
+  .guia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    
+    p {
+      margin: 0;
+      padding: .7rem;
+      border-radius: 25px;
+      border-color: transparent;
+      background-color: #ffffffc9;
+      color: $fontColor;
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .aprobado {
+      background-color: #ffba08c9;
+  
+    }
+  
+    .exonerado {
+      background-color: #38b000c9;
+    }
+  }
+
+  .creditos {
     text-align: center;
     font-size: 1.5rem;
-    color: #ffffff;
+    margin-top: 1rem;
+  }
+}
+
+.limpiar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-btn {
+    padding: .4rem .8rem;
+    margin: 0;
+    transition: 150ms;
+    border-radius: 25px;
+    border-color: transparent;
+    background-color: #ffffffc9;
+    color: $fontColor;
+    font-weight: bold;
+
+    &:hover {
+      scale: 1.03;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
   }
 }
 
 .curricula {
   text-align: center;
+  color: #ffffff;
   width: 80%;
-  margin: 0 auto;
+  margin: 1rem auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.primer__anio, .segundo__anio, .tercer__anio, .cuarto__anio, .quinto__anio, .opcional { 
+.primer__anio, .segundo__anio, .tercer__anio, .cuarto__anio, .quinto__anio { 
   display: inline-block;
-  border-bottom: solid #ffffff;
+  border-top: solid #ffffff;
 
   .curso {
     padding: .8rem;
@@ -56,8 +105,4 @@
   .deshabilitado {
     background-color: red;
   }
-}
-
-.quinto__anio {
-  border-bottom: none;
 }
