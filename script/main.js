@@ -44,7 +44,8 @@ fetch("./script/cursos.json")
 
 
 function construirBotonesDesdeJSON() {
-  const contenedores = document.querySelectorAll('.curricula div'); 
+  const contenedores = document.querySelectorAll('.curricula div');
+  let aniosConCursos = {};
 
   cursosJSON.forEach(curso => {
     const boton = document.createElement('button');
@@ -58,6 +59,20 @@ function construirBotonesDesdeJSON() {
 
     if (contenedor) {
       contenedor.appendChild(boton);
+    }
+
+    aniosConCursos[curso.anio] = true;
+  });
+
+  contenedores.forEach(contenedor => {
+    const anio = contenedor.dataset.cursoId;
+    const h2 = document.querySelector(`h2[data-curso-id="${anio}"]`);
+    if (h2) {
+      if (aniosConCursos[anio]) {
+        h2.style.display = 'block'; 
+      } else {
+        h2.style.display = 'none'; 
+      }
     }
   });
 
