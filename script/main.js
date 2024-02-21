@@ -7,7 +7,10 @@ function vanish() {
   loader.classList.add('disappear');
 }
 
-/*=============== LOGOUT ===============*/
+/*
+=============== LOGOUT ===============
+Deshabilitado para facilitar la visualización de contenido
+
 document.addEventListener('DOMContentLoaded', function () {
   const userEmailElement = document.getElementById('user-email');
   const logoutButton = document.getElementById('logout-button');
@@ -22,7 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
   logoutButton.addEventListener('click', function () {
   window.location.href = 'login.html';
   });
-});
+}); 
+
+*/
 
 /*=============== MAIN ===============*/
 let cursosJSON = [];
